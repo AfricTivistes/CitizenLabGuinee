@@ -1,0 +1,64 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = {
+  title: 'Contact',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+
+  <ContactUs
+    title="Contact"
+    subtitle="Vous avez une demande ou une suggestion pour nous? Remplissez le formulaire ci-dessous pour contacter notre équipe"
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Nom et Prénom',
+        placeholder: 'John Doe'
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email',
+        placeholder: 'johndoe@email.com'
+      },
+    ]}
+    textarea={{
+      label: 'Message',
+      placeholder: 'Message'
+    }}
+    disclaimer={{
+      label:
+        'En soumettant ce formulaire de contact, vous reconnaissez et acceptez la collecte de vos informations personnelles.',
+    }}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Nous contacter"
+    items={[
+      {
+        title: 'Phone',
+        description: '+261 37 646 16 64',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Email',
+        description: 'citizenlabmadagascar@africtivistes.org',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Location',
+        description: ' Lot IVP 7 Bis Ankadifotsy Befelatanana, Antananarivo, 101 Madagascar',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+</Layout>

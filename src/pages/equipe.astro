@@ -1,0 +1,39 @@
+---
+import Layout from "~/layouts/PageLayout.astro";
+import Stats from "~/components/widgets/Stats.astro";
+import Headline from "~/components/ui/Headline.astro";
+import { getAllMembers } from "~/utils/api";
+import Membres from "~/components/blog/Membres.astro";
+
+
+const metadata = {
+  title: 'Equipe',
+};
+const members = await getAllMembers();
+---
+
+<Layout metadata={metadata}>
+  <div>
+    <Headline
+      subtitle="L'équipe Citizen Lab Madagascar est composée de jeunes engagés avec des profils divers et complémentaires. Ce sont des acteurs de changement conscients de leur leadership et de leur volonté d'impacter"
+      title="Membres de l'équipe"
+    >
+    </Headline>
+
+    <!-- Membres ****************** -->
+
+    <Membres team={members}/>
+
+    <!-- Stats Widget ****************** -->
+
+    <Stats
+      stats={[
+        { title: 'Offres de formations', amount: '50' },
+        { title: 'Jeunes outillés', amount: '+150' },
+        { title: 'Contenus de Valeurs', amount: '+130' },
+        { title: "Nouvelles consciences citoyennes", amount: '+10M' },
+      ]}
+    />
+  </div>
+
+</Layout>

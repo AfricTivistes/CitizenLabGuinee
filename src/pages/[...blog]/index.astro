@@ -1,0 +1,51 @@
+---
+import merge from 'lodash.merge';
+import Layout from '~/layouts/PageLayout.astro';
+import SinglePost from '~/components/blog/SinglePost.astro';
+import ToBlogLink from '~/components/blog/ToBlogLink.astro';
+
+import { getCanonical, getPermalink } from '~/utils/permalinks';
+import { getStaticPathsBlogPost, blogPostRobots } from '~/utils/blog';
+import { findImage } from '~/utils/images';
+import type { MetaData } from '~/types/metadata';
+
+export const prerender = true;
+
+export async function getStaticPaths () {
+  return await getStaticPathsBlogPost();
+}
+
+const { post } = Astro.props;
+
+const url = getCanonical(getPermalink(post.permalink, 'post'));
+let imageUrl: string | undefined = undefined;
+if (post.image) {
+  const found = await findImage(post.image);
+  if (typeof found === 'string') {
+    imageUrl = found;
+  } else if (found && typeof found === 'object' && 'src' in found) {
+    imageUrl = found.src;
+  }
+}
+
+const metadata = merge(
+  {
+    title: post.title,
+    description: post.excerpt,
+    robots: {
+      index: blogPostRobots?.index,
+      follow: blogPostRobots?.follow,
+    },
+    openGraph: {
+      type: 'article',
+      ...(imageUrl ? { images: [{ url: imageUrl }] } : {}),
+    },
+  },
+  { ...(post?.metadata ? { ...post.metadata, canonical: post.metadata?.canonical || url } : {}) }
+) as MetaData;
+---
+
+<Layout metadata={metadata}>
+  <SinglePost post={{ ...post, image: imageUrl }} />
+  <ToBlogLink />
+</Layout>

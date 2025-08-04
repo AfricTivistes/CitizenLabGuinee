@@ -1,0 +1,61 @@
+---
+import { APP_BLOG } from "~/utils/config";
+
+import Grid from "~/components/blog/Grid.astro";
+
+import { getBlogPermalink } from "~/utils/permalinks";
+import { findLatestPosts } from "~/utils/blog";
+import WidgetWrapper from "~/components/ui/WidgetWrapper.astro";
+import type { Widget } from "~/types";
+import Button from "../ui/Button.astro";
+
+export interface Props extends Widget {
+  title?: string;
+  linkText?: string;
+  linkUrl?: string | URL;
+  information?: string;
+  count?: number;
+}
+
+const {
+  title = await Astro.slots.render("title"),
+  linkText = "Voir tous les articles",
+  linkUrl = getBlogPermalink(),
+  information = await Astro.slots.render("information"),
+  count = 8,
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render("bg"),
+} = Astro.props;
+
+const posts = APP_BLOG.isEnabled ? await findLatestPosts({ count }) : [];
+---
+
+{
+  APP_BLOG.isEnabled ? (
+    <WidgetWrapper id={id} isDark={isDark} containerClass={classes?.container} bg={bg}>
+      <div class="mb-12 text-center flex flex-col items-center justify-center w-full">
+        {title && (
+          <>
+            <h2
+              class="text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none group font-heading mb-2 text-center"
+              set:html={title}
+            />
+            {APP_BLOG.list.isEnabled && linkText && linkUrl && (
+              <div class="my-2">
+                <Button variant="link" href={linkUrl} class="text-lg font-semibold">{linkText} »</Button>
+              </div>
+            )}
+          </>
+        )}
+        {information && <p class="text-muted dark:text-slate-400 text-xl max-w-2xl mx-auto mt-4 mb-0 leading-relaxed text-center" set:html={information} />}
+      </div>
+
+      <Grid posts={posts} />
+    </WidgetWrapper>
+  ) : (
+    <Fragment />
+  )
+}
