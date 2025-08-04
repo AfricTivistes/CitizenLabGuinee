@@ -19,7 +19,6 @@ export const headerData = {
       text: 'Actualités',
       href: getBlogPermalink(),
       links: [
-
         {
           text: 'Campagnes',
           href: getPermalink('campagnes', 'category'),
@@ -32,7 +31,6 @@ export const headerData = {
           text: 'Vidéos',
           href: getPermalink('videos', 'category'),
         },
-
       ],
     },
     {
@@ -47,7 +45,6 @@ export const headerData = {
       text: 'Contact',
       href: getPermalink('/contact'),
     },
-    
   ],
 };
 
@@ -57,8 +54,13 @@ export const footerData = {
       title: 'CitizenLab',
       links: [
         {
-          text: 'A Propos', href: getPermalink('/a-propos') },
-        { text: 'Equipe', href: getPermalink('/equipe') },
+          text: 'A Propos', 
+          href: getPermalink('/a-propos') 
+        },
+        { 
+          text: 'Equipe', 
+          href: getPermalink('/equipe') 
+        },
       ],
     },
     {
@@ -72,7 +74,6 @@ export const footerData = {
         { text: 'Formations', href: getPermalink('formations', 'category') },
       ],
     },
-
     {
       title: "Nous Contacter",
       links:[
@@ -99,3 +100,4 @@ export const footerData = {
   </a>
     <a target= '_blank' class="text-green-600 hover:underline dark:text-gray-200" href="https://www.africtivistes.com"> AfricTivistes</a> · All rights reserved.
   `
+};

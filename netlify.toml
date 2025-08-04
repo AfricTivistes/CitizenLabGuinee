@@ -1,16 +1,23 @@
 [build]
-  command = "npm run build"
+  command = "npm ci && npm run build"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "18"
   NPM_VERSION = "9"
+  NPM_FLAGS = "--no-optional"
 
+# Configuration pour éviter les problèmes de cache
+[build.processing]
+  skip_processing = false
+
+# Configuration des redirects
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
+# Variables d'environnement pour la production
 [context.production.environment]
   GRAPHQL_ENDPOINT = "https://citizenlab.africtivistes.org/citizenlabguinee/graphql"
   SITE_NAME = "AfricTivistes CitizenLab Guinée"
@@ -19,7 +26,9 @@
   WP_ADMIN_URL = "https://citizenlab.africtivistes.org/citizenlabguinee/wp-admin"
   GRAPHQL_DEBUG = "false"
   NODE_ENV = "production"
+  NPM_CONFIG_PRODUCTION = "false"
 
+# Variables d'environnement pour les previews
 [context.deploy-preview.environment]
   GRAPHQL_ENDPOINT = "https://citizenlab.africtivistes.org/citizenlabguinee/graphql"
   SITE_NAME = "AfricTivistes CitizenLab Guinée (Preview)"
@@ -28,7 +37,9 @@
   WP_ADMIN_URL = "https://citizenlab.africtivistes.org/citizenlabguinee/wp-admin"
   GRAPHQL_DEBUG = "true"
   NODE_ENV = "development"
+  NPM_CONFIG_PRODUCTION = "false"
 
+# Headers de sécurité
 [[headers]]
   for = "/*"
   [headers.values]
@@ -38,6 +49,7 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
+# Cache pour les assets statiques
 [[headers]]
   for = "/assets/*"
   [headers.values]
@@ -50,5 +62,21 @@
 
 [[headers]]
   for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Configuration pour les fichiers d'images
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable" 
