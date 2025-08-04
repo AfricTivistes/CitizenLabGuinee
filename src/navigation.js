@@ -76,9 +76,9 @@ export const footerData = {
     {
       title: "Nous Contacter",
       links:[
-        { text: "citizenlabmadagascar@africtivistes.org", href:'mailto:citizenlabmadagascar@africtivistes.org ' },
-        { text: "+261 37 646 16 64", href: 'tel:+261376461664'},
-        {text: " Lot IVP 7 Bis Ankadifotsy Befelatanana, Antananarivo, 101 Madagascar ", href: '#'}
+        { text: "citizenlabguinee@africtivistes.org", href:'mailto:citizenlabguinee@africtivistes.org ' },
+        { text: "+224 623 456 789", href: 'tel:+224623456789'},
+        {text: " Conakry, Guinée ", href: '#'}
       ]
     }
   ],
@@ -87,16 +87,15 @@ export const footerData = {
     //{ text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { icon: 'tabler:brand-x', href: 'https://twitter.com/MadagascarCitizenlab' },
-    { icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/citizenlabmadagascar/' },
-    { icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/profile.php?id=61553614994311' },
-    { icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/citizen-lab-madagascar/about/' },
-    { icon: 'tabler:brand-github', href: 'https://github.com/AfricTivistes/citizenlabmadagascar' },
+    { icon: 'tabler:brand-x', href: 'https://twitter.com/GuineeCitizenlab' },
+    { icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/citizenlabguinee/' },
+    { icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/profile.php?id=61553614994312' },
+    { icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/citizen-lab-guinee/about/' },
+    { icon: 'tabler:brand-github', href: 'https://github.com/AfricTivistes/CitizenLabGuinee' },
   ],
   footNote: `
   <a href="https://www.africtivistes.com" target= '_blank'>
   <img src="https://update.africtivistes.org/wp-content/uploads/2023/10/Logo-Africtivistes.png" alt="AfricTivistes" class="h-8" />
   </a>
     <a target= '_blank' class="text-green-600 hover:underline dark:text-gray-200" href="https://www.africtivistes.com"> AfricTivistes</a> · All rights reserved.
-  `,
-};
+  `

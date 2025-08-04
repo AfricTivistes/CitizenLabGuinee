@@ -1,0 +1,54 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_VERSION = "9"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production.environment]
+  GRAPHQL_ENDPOINT = "https://citizenlab.africtivistes.org/citizenlabguinee/graphql"
+  SITE_NAME = "AfricTivistes CitizenLab Guinée"
+  SITE_URL = "https://citizenlabguinee.netlify.app"
+  WP_SITE_URL = "https://citizenlab.africtivistes.org/citizenlabguinee"
+  WP_ADMIN_URL = "https://citizenlab.africtivistes.org/citizenlabguinee/wp-admin"
+  GRAPHQL_DEBUG = "false"
+  NODE_ENV = "production"
+
+[context.deploy-preview.environment]
+  GRAPHQL_ENDPOINT = "https://citizenlab.africtivistes.org/citizenlabguinee/graphql"
+  SITE_NAME = "AfricTivistes CitizenLab Guinée (Preview)"
+  SITE_URL = "https://citizenlabguinee.netlify.app"
+  WP_SITE_URL = "https://citizenlab.africtivistes.org/citizenlabguinee"
+  WP_ADMIN_URL = "https://citizenlab.africtivistes.org/citizenlabguinee/wp-admin"
+  GRAPHQL_DEBUG = "true"
+  NODE_ENV = "development"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable" 

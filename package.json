@@ -1,14 +1,16 @@
 {
-  "name": "citizenlab-madagascar",
+  "name": "citizenlab-guinee",
   "type": "module",
-  "description": "CitizenLab Madagascar - Plateforme de participation citoyenne",
+  "description": "CitizenLab Guinée - Plateforme de participation citoyenne",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "netlify:build": "npm run build",
+    "netlify:dev": "npm run dev"
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.19.2",
