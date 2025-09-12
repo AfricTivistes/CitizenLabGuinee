@@ -10,6 +10,7 @@ import partytown from '@astrojs/partytown';
 import compress from 'astro-compress';
 import icon from 'astro-icon';
 import tasks from './src/utils/tasks';
+import { env } from 'process';
 
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
 
@@ -100,6 +101,11 @@ export default defineConfig({
           },
         },
       },
+    },
+    server: {
+      allowedHosts: [(env.REPLIT_DOMAINS || '').split(',')[0]],
+      host: '0.0.0.0',
+      port: 4321,
     },
   },
 });

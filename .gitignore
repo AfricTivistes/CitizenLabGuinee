@@ -84,3 +84,6 @@ jspm_packages/
 
 # TernJS port file
 .tern-port 
+
+# Replit
+attached_assets

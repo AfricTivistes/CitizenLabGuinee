@@ -51,8 +51,13 @@ const image = await findImage(member.featuredImage?.node?.mediaItemUrl);
   </div>
   <div class="px-4 py-4 text-center">
     <h2 class="font-bold text-lg">{member.title}</h2>
+    {member.excerpt && (
+      <div class="text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed" 
+           set:html={member.excerpt.length > 80 ? member.excerpt.substring(0, 80) + '...' : member.excerpt}>
+      </div>
+    )}
 
-    <div class="flex justify-center mt-2">
+    <div class="flex justify-center https://docs.astro.build/en/reference/astro-syntax/mt-3">
       {member.social.facebook && (
               <a href={member.social.facebook} target="_blank" rel="noopener noreferrer">
                 <Icon

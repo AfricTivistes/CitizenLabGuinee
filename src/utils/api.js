@@ -1,6 +1,13 @@
 export async function navQuery() {
-  console.log('Fetching menu from:', import.meta.env.PUBLIC_WORDPRESS_API_URL);
-  const response = await fetch(import.meta.env.PUBLIC_WORDPRESS_API_URL, {
+  const apiUrl = import.meta.env.PUBLIC_WORDPRESS_API_URL;
+  console.log('Fetching menu from:', apiUrl);
+
+  if (!apiUrl) {
+    console.warn('PUBLIC_WORDPRESS_API_URL is not defined, returning empty menu');
+    return [];
+  }
+
+  const response = await fetch(apiUrl, {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -36,7 +43,14 @@ export async function navQuery() {
 }
 
 export async function getNodeByURI(uri) {
-  const response = await fetch(import.meta.env.PUBLIC_WORDPRESS_API_URL, {
+  const apiUrl = import.meta.env.PUBLIC_WORDPRESS_API_URL;
+
+  if (!apiUrl) {
+    console.warn('PUBLIC_WORDPRESS_API_URL is not defined, returning null');
+    return null;
+  }
+
+  const response = await fetch(apiUrl, {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -137,12 +151,19 @@ export async function getNodeByURI(uri) {
   return data;
 }
 export async function getAllUris() {
+  const apiUrl = import.meta.env.PUBLIC_WORDPRESS_API_URL;
+
+  if (!apiUrl) {
+    console.warn('PUBLIC_WORDPRESS_API_URL is not defined, returning empty array');
+    return [];
+  }
+
   let allUris = [];
   let afterCursor = null;
   let hasNextPage = true;
 
   while (hasNextPage) {
-    const response = await fetch(import.meta.env.PUBLIC_WORDPRESS_API_URL, {
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -195,7 +216,14 @@ export async function getAllUris() {
 
 
 export async function findLatestPostsAPI() {
-  const response = await fetch(import.meta.env.PUBLIC_WORDPRESS_API_URL, {
+  const apiUrl = import.meta.env.PUBLIC_WORDPRESS_API_URL;
+
+  if (!apiUrl) {
+    console.warn('PUBLIC_WORDPRESS_API_URL is not defined, returning empty array');
+    return [];
+  }
+
+  const response = await fetch(apiUrl, {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -235,12 +263,19 @@ export async function findLatestPostsAPI() {
   return data.posts.nodes;
 }
 export async function newsPagePostsQuery() {
+  const apiUrl = import.meta.env.PUBLIC_WORDPRESS_API_URL;
+
+  if (!apiUrl) {
+    console.warn('PUBLIC_WORDPRESS_API_URL is not defined, returning empty array');
+    return [];
+  }
+
   let allPosts = [];
   let afterCursor = null;
   let hasNextPage = true;
 
   while (hasNextPage) {
-    const response = await fetch(import.meta.env.PUBLIC_WORDPRESS_API_URL, {
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -299,50 +334,56 @@ export async function newsPagePostsQuery() {
 }
 
 export async function getAllMembers() {
+  const apiUrl = import.meta.env.PUBLIC_WORDPRESS_API_URL;
+
+  if (!apiUrl) {
+    console.warn('PUBLIC_WORDPRESS_API_URL is not defined, returning empty array');
+    return [];
+  }
+
   try {
-    const response = await fetch(import.meta.env.PUBLIC_WORDPRESS_API_URL, {
+    const response = await fetch(apiUrl, {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         query: `{
           equipes (where: {status: PUBLISH}, first: 100) {
-                  nodes {
-                        featuredImage {
-                              node {
-                                altText
-                                mediaItemUrl
-                        }
-                        }
-                        title
-                        fonctions {
-                          equipe
-                          fonction
-                        }
-                        social {
-                          facebook
-                          instagram
-                          linkedin
-                          twitter
-                        }
-                    }
+            nodes {
+              id
+              title
+              excerpt
+              featuredImage {
+                node {
+                  altText
+                  mediaItemUrl
+                  sourceUrl
+                }
+              }
+              social {
+                facebook
+                instagram
+                linkedin
+                twitter
+              }
+            }
           }
-          }     
-        `
+        }`
       })
     });
-    
-    const { data } = await response.json();
-    
-    // Check if data.equipes exists and has nodes
-    if (data && data.equipes && data.equipes.nodes) {
-      return data.equipes.nodes;
-    } else {
-      console.error('No equipes data found in API response');
-      // Return an empty array as fallback
+
+    const result = await response.json();
+
+    if (result.errors) {
+      console.error('API GraphQL errors:', result.errors);
       return [];
     }
+
+    const members = result?.data?.equipes?.nodes || [];
+    console.log(`✅ ${members.length} membres récupérés avec succès`);
+
+    return members;
   } catch (error) {
-    console.error('Error fetching team members:', error);
+    console.error('❌ Erreur lors de la récupération des membres:', error);
     return [];
   }
 }
