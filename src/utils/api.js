@@ -1,12 +1,12 @@
 export async function navQuery() {
   const apiUrl = import.meta.env.PUBLIC_WORDPRESS_API_URL;
   console.log('Fetching menu from:', apiUrl);
-
+  
   if (!apiUrl) {
     console.warn('PUBLIC_WORDPRESS_API_URL is not defined, returning empty menu');
     return [];
   }
-
+  
   const response = await fetch(apiUrl, {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
@@ -44,12 +44,12 @@ export async function navQuery() {
 
 export async function getNodeByURI(uri) {
   const apiUrl = import.meta.env.PUBLIC_WORDPRESS_API_URL;
-
+  
   if (!apiUrl) {
     console.warn('PUBLIC_WORDPRESS_API_URL is not defined, returning null');
     return null;
   }
-
+  
   const response = await fetch(apiUrl, {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
@@ -152,12 +152,12 @@ export async function getNodeByURI(uri) {
 }
 export async function getAllUris() {
   const apiUrl = import.meta.env.PUBLIC_WORDPRESS_API_URL;
-
+  
   if (!apiUrl) {
     console.warn('PUBLIC_WORDPRESS_API_URL is not defined, returning empty array');
     return [];
   }
-
+  
   let allUris = [];
   let afterCursor = null;
   let hasNextPage = true;
@@ -217,12 +217,12 @@ export async function getAllUris() {
 
 export async function findLatestPostsAPI() {
   const apiUrl = import.meta.env.PUBLIC_WORDPRESS_API_URL;
-
+  
   if (!apiUrl) {
     console.warn('PUBLIC_WORDPRESS_API_URL is not defined, returning empty array');
     return [];
   }
-
+  
   const response = await fetch(apiUrl, {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
@@ -264,12 +264,12 @@ export async function findLatestPostsAPI() {
 }
 export async function newsPagePostsQuery() {
   const apiUrl = import.meta.env.PUBLIC_WORDPRESS_API_URL;
-
+  
   if (!apiUrl) {
     console.warn('PUBLIC_WORDPRESS_API_URL is not defined, returning empty array');
     return [];
   }
-
+  
   let allPosts = [];
   let afterCursor = null;
   let hasNextPage = true;
@@ -335,12 +335,12 @@ export async function newsPagePostsQuery() {
 
 export async function getAllMembers() {
   const apiUrl = import.meta.env.PUBLIC_WORDPRESS_API_URL;
-
+  
   if (!apiUrl) {
     console.warn('PUBLIC_WORDPRESS_API_URL is not defined, returning empty array');
     return [];
   }
-
+  
   try {
     const response = await fetch(apiUrl, {
       method: 'post',
@@ -348,42 +348,43 @@ export async function getAllMembers() {
       body: JSON.stringify({
         query: `{
           equipes (where: {status: PUBLISH}, first: 100) {
-            nodes {
-              id
-              title
-              excerpt
-              featuredImage {
-                node {
-                  altText
-                  mediaItemUrl
-                  sourceUrl
-                }
-              }
-              social {
-                facebook
-                instagram
-                linkedin
-                twitter
-              }
-            }
+                  nodes {
+                        featuredImage {
+                              node {
+                                altText
+                                mediaItemUrl
+                        }
+                        }
+                        title
+                        fonctions {
+                          equipe
+                          fonction
+                        }
+                        social {
+                          facebook
+                          instagram
+                          linkedin
+                          twitter
+                        }
+                    }
           }
-        }`
+          }     
+        `
       })
     });
-
-    const result = await response.json();
-
-    if (result.errors) {
-      console.error('API GraphQL errors:', result.errors);
+    
+    const { data } = await response.json();
+    
+    // Check if data.equipes exists and has nodes
+    if (data && data.equipes && data.equipes.nodes) {
+      return data.equipes.nodes;
+    } else {
+      console.error('No equipes data found in API response');
+      // Return an empty array as fallback
       return [];
     }
-
-    const members = result?.data?.equipes?.nodes || [];
-    console.log(`✅ ${members.length} membres récupérés avec succès`);
-
-    return members;
   } catch (error) {
-    console.error('❌ Erreur lors de la récupération des membres:', error);
+    console.error('Error fetching team members:', error);
     return [];
   }
 }

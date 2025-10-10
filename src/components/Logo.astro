@@ -1,9 +1,7 @@
 ---
-import { Image } from 'astro:assets';
 import logo from '../assets/images/logo.svg';
+import Image from '~/components/common/Image.astro';
 
 ---
-<div class="flex items-center justify-center space-x-2">
-  <Image src={logo} alt="logo CitizenLab Guinée" class="h-12" />
-  <img src="/guineedrapeau.svg" alt="Drapeau Guinée" class="h-8 w-6" />
-</div>
+<Image src={logo} alt="logo CitizenLab Cameroun" class="h-12" />
+<span class="self-center ml-1 mt-5 text-2xl md:text-xl font-bold whitespace-nowrap">🇨🇲</span>

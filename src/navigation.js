@@ -19,6 +19,7 @@ export const headerData = {
       text: 'Actualités',
       href: getBlogPermalink(),
       links: [
+
         {
           text: 'Campagnes',
           href: getPermalink('campagnes', 'category'),
@@ -31,6 +32,7 @@ export const headerData = {
           text: 'Vidéos',
           href: getPermalink('videos', 'category'),
         },
+
       ],
     },
     {
@@ -45,6 +47,7 @@ export const headerData = {
       text: 'Contact',
       href: getPermalink('/contact'),
     },
+    
   ],
 };
 
@@ -54,13 +57,8 @@ export const footerData = {
       title: 'CitizenLab',
       links: [
         {
-          text: 'A Propos', 
-          href: getPermalink('/a-propos') 
-        },
-        { 
-          text: 'Equipe', 
-          href: getPermalink('/equipe') 
-        },
+          text: 'A Propos', href: getPermalink('/a-propos') },
+        { text: 'Equipe', href: getPermalink('/equipe') },
       ],
     },
     {
@@ -74,12 +72,13 @@ export const footerData = {
         { text: 'Formations', href: getPermalink('formations', 'category') },
       ],
     },
+
     {
       title: "Nous Contacter",
       links:[
-        { text: "citizenlabguinee@africtivistes.org", href:'mailto:citizenlabguinee@africtivistes.org ' },
-        { text: "+224 623 456 789", href: 'tel:+224623456789'},
-        {text: " Conakry, Guinée ", href: '#'}
+        { text: "citizenlabcameroun@africtivistes.org", href:'mailto:citizenlabcameroun@africtivistes.org ' },
+        { text: "+261 37 646 16 64", href: 'tel:+261376461664'},
+        {text: " Yaoundé, Cameroun ", href: '#'}
       ]
     }
   ],
@@ -88,16 +87,16 @@ export const footerData = {
     //{ text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { icon: 'tabler:brand-x', href: 'https://twitter.com/GuineeCitizenlab' },
-    { icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/citizenlabguinee/' },
-    { icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/profile.php?id=61553614994312' },
-    { icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/citizen-lab-guinee/about/' },
-    { icon: 'tabler:brand-github', href: 'https://github.com/AfricTivistes/CitizenLabGuinee' },
+    { icon: 'tabler:brand-x', href: 'https://twitter.com/CamerounCitizenlab' },
+    { icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/citizenlabcameroun/' },
+    { icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/profile.php?id=61553614994311' },
+    { icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/citizen-lab-cameroun/about/' },
+    { icon: 'tabler:brand-github', href: 'https://github.com/AfricTivistes/citizenlabcameroun' },
   ],
   footNote: `
   <a href="https://www.africtivistes.com" target= '_blank'>
   <img src="https://update.africtivistes.org/wp-content/uploads/2023/10/Logo-Africtivistes.png" alt="AfricTivistes" class="h-8" />
   </a>
     <a target= '_blank' class="text-green-600 hover:underline dark:text-gray-200" href="https://www.africtivistes.com"> AfricTivistes</a> · All rights reserved.
-  `
+  `,
 };

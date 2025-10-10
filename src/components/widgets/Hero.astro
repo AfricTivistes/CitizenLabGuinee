@@ -10,7 +10,7 @@ export interface Props {
   tagline?: string;
   content?: string;
   actions?: string | CallToAction[];
-  image?: string | any; // TODO: find HTMLElementProps
+
 }
 
 const {
@@ -20,7 +20,7 @@ const {
   tagline,
   content = await Astro.slots.render('content'),
   actions = await Astro.slots.render('actions'),
-  image = await Astro.slots.render('image'),
+
 } = Astro.props;
 ---
 
@@ -69,7 +69,7 @@ const {
       <div>
          <div class="relative m-auto max-w-5xl">
            <Image
-             src="~/assets/images/ACLMadagascar.jpg"
+             src="~/assets/images/CameroonDrapeau.svg"
              class="mx-auto rounded-md w-full"
              widths={[400, 768, 1024, 2040]}
              sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
@@ -80,9 +80,6 @@ const {
              alt="Hero Image"
            />
          </div>
-         {/* <Fragment slot="image">
-          <iframe width="560" height="500" src="https://www.youtube.com/embed/1m_SCsMkZJA?si=fKuT8CvvW9DqOQFT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="width:100%"></iframe>
-        </Fragment> */}
       </div>
     </div>
   </div>

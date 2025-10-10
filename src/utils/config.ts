@@ -203,24 +203,3 @@ export const METADATA = getMetadata();
 export const APP_BLOG = getAppBlog();
 export const UI = getUI();
 export const ANALYTICS = getAnalytics();
-
-// GraphQL Configuration
-export const GRAPHQL_CONFIG = {
-  endpoint: import.meta.env.GRAPHQL_ENDPOINT || 'https://citizenlab.africtivistes.org/citizenlabguinee/graphql',
-  debug: import.meta.env.GRAPHQL_DEBUG === 'true' || false,
-};
-
-// WordPress Configuration
-export const WP_CONFIG = {
-  siteUrl: import.meta.env.WP_SITE_URL || 'https://citizenlab.africtivistes.org/citizenlabguinee',
-  adminUrl: import.meta.env.WP_ADMIN_URL || 'https://citizenlab.africtivistes.org/citizenlabguinee/wp-admin',
-};
-
-// Site Configuration
-export const SITE_CONFIG = {
-  name: import.meta.env.SITE_NAME || 'AfricTivistes CitizenLab Guinée',
-  url: import.meta.env.SITE_URL || 'https://citizenlabguinee.netlify.app',
-  country: 'Guinée',
-  countryCode: 'GN',
-  flag: '🇬🇳',
-};

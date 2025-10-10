@@ -1,16 +1,17 @@
 {
-  "name": "citizenlab-guinee",
+  "name": "citizenlab-cameroun",
+  "version": "1.0.0",
   "type": "module",
-  "description": "CitizenLab Guinée - Plateforme de participation citoyenne",
-  "version": "0.0.1",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "description": "CitizenLab Cameroun - Plateforme de participation citoyenne",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "netlify:build": "npm run build",
-    "netlify:dev": "npm run dev"
+    "astro": "astro"
   },
   "dependencies": {
     "@algolia/autocomplete-js": "^1.19.2",
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
+    "@types/js-yaml": "^4.0.9",
     "@types/lodash.merge": "^4.6.9",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.35",

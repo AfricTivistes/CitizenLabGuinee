@@ -1,6 +1,6 @@
 site:
-  name: AfricTivistes CitizenLab Guinée
-  site: 'https://citizenlabguinee.netlify.app'
+  name: AfricTivistes CitizenLab Cameroun
+  site: 'https://citizenlabcameroun.netlify.app'
   base: '/'
   trailingSlash: false
 
@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Africtivistes CitizenLab Guinée
+    default: Africtivistes CitizenLab Cameroun
     template: '%s — AfricTivistes'
-  description: "AfricTivistes CitizenLab Guinée 🇬🇳 est une fabrique citoyenne dont le but est d'appuyer, d'accompagner et d'outiller les acteurs de la société civile guinéenne par la formation, le développement d'outils et l'accompagnement à l'innovation et à la co-création."
+  description: "AfricTivistes CitizenLab Cameroun 🇨🇲 est une fabrique citoyenne dont le but est d'appuyer, d'accompagner et d'outiller les acteurs de la société civile camerounaise par la formation, le développement d'outils et l'accompagnement à l'innovation et à la co-création."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Africtivistes CitizenLab Guinée
+    site_name: Africtivistes CitizenLab Cameroun
     images:
       - url: '~/assets/images/default.png'
         width: 1200
