@@ -10,7 +10,7 @@ interface WordPressTeamMember {
       altText?: string;
     };
   };
-  social: {
+  social?: {
     facebook?: string;
     instagram?: string;
     linkedin?: string;
@@ -29,6 +29,17 @@ export interface Props {
 const { team } = Astro.props;
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 ml-20 mr-20">
-  {team.map((membre) => <Membre member={membre} />)}
-</div>
+{team && team.length > 0 ? (
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    {team.map((membre) => <Membre member={membre} />)}
+  </div>
+) : (
+  <div class="text-center py-12 max-w-2xl mx-auto px-4">
+    <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
+      Aucun membre de l'équipe trouvé.
+    </p>
+    <p class="text-sm text-gray-500 dark:text-gray-500">
+      Les membres seront affichés ici une fois qu'ils seront publiés dans WordPress.
+    </p>
+  </div>
+)}

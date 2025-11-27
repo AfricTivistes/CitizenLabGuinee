@@ -9,31 +9,59 @@ import Membres from "~/components/blog/Membres.astro";
 const metadata = {
   title: 'Equipe',
 };
-const members = await getAllMembers();
+
+let members = [];
+try {
+  members = await getAllMembers();
+  console.log(`Équipe: ${members.length} membres récupérés`);
+} catch (error) {
+  console.error('Erreur lors de la récupération des membres:', error);
+  members = [];
+}
 ---
 
 <Layout metadata={metadata}>
-  <div>
-    <Headline
-      subtitle="L'équipe Citizen Lab Guinée est composée de jeunes engagés avec des profils divers et complémentaires. Ce sont des acteurs de changement conscients de leur leadership et de leur volonté d'impacter"
-      title="Membres de l'équipe"
-    >
-    </Headline>
+  <div class="min-h-screen">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <Headline
+        subtitle="L'équipe Citizen Lab Guinée est composée de jeunes engagés avec des profils divers et complémentaires. Ce sont des acteurs de changement conscients de leur leadership et de leur volonté d'impacter"
+        title="Membres de l'équipe"
+        classes={{
+          container: 'text-center mb-12',
+          title: 'text-4xl md:text-5xl font-bold mb-4',
+          subtitle: 'text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto',
+        }}
+      >
+      </Headline>
 
     <!-- Membres ****************** -->
+    
+    {members && members.length > 0 ? (
+      <Membres team={members}/>
+    ) : (
+      <div class="text-center py-12 max-w-2xl mx-auto px-4">
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
+          Les membres de l'équipe seront affichés ici une fois qu'ils seront publiés dans WordPress.
+        </p>
+        <p class="text-sm text-gray-500 dark:text-gray-500">
+          Vérifiez que les membres sont bien publiés dans WordPress (Equipes → Tous les membres).
+        </p>
+      </div>
+    )}
 
-    <Membres team={members}/>
+    </section>
 
     <!-- Stats Widget ****************** -->
-
-    <Stats
-      stats={[
-        { title: 'Offres de formations', amount: '50' },
-        { title: 'Jeunes outillés', amount: '+150' },
-        { title: 'Contenus de Valeurs', amount: '+130' },
-        { title: "Nouvelles consciences citoyennes", amount: '+10M' },
-      ]}
-    />
+    <section class="bg-gray-50 dark:bg-slate-800 py-12">
+      <Stats
+        stats={[
+          { title: 'Offres de formations', amount: '50' },
+          { title: 'Jeunes outillés', amount: '+150' },
+          { title: 'Contenus de Valeurs', amount: '+130' },
+          { title: "Nouvelles consciences citoyennes", amount: '+10M' },
+        ]}
+      />
+    </section>
   </div>
 
 </Layout>

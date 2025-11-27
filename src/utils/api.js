@@ -348,38 +348,46 @@ export async function getAllMembers() {
       body: JSON.stringify({
         query: `{
           equipes (where: {status: PUBLISH}, first: 100) {
-                  nodes {
-                        featuredImage {
-                              node {
-                                altText
-                                mediaItemUrl
-                        }
-                        }
-                        title
-                        fonctions {
-                          equipe
-                          fonction
-                        }
-                        social {
-                          facebook
-                          instagram
-                          linkedin
-                          twitter
-                        }
-                    }
+            nodes {
+              id
+              title
+              slug
+              date
+              excerpt
+              featuredImage {
+                node {
+                  altText
+                  mediaItemUrl
+                  sourceUrl
+                }
+              }
+              social {
+                facebook
+                instagram
+                linkedin
+                twitter
+              }
+            }
           }
-          }     
-        `
+        }`
       })
     });
     
-    const { data } = await response.json();
+    const json = await response.json();
+    
+    // Log pour le débogage
+    if (json.errors) {
+      console.error('GraphQL errors:', json.errors);
+    }
+    
+    const { data } = json;
     
     // Check if data.equipes exists and has nodes
-    if (data && data.equipes && data.equipes.nodes) {
+    if (data && data.equipes && data.equipes.nodes && data.equipes.nodes.length > 0) {
+      console.log(`Successfully fetched ${data.equipes.nodes.length} team members`);
       return data.equipes.nodes;
     } else {
-      console.error('No equipes data found in API response');
+      console.warn('No equipes data found in API response. Response:', json);
       // Return an empty array as fallback
       return [];
     }

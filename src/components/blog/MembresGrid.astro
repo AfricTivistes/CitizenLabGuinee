@@ -1,6 +1,4 @@
 ---
-import Image from '~/components/common/Image.astro';
-import { findImage } from '~/utils/images';
 import { Icon } from 'astro-icon/components';
 
 // Custom type for WordPress team members
@@ -12,7 +10,7 @@ interface WordPressTeamMember {
       altText?: string;
     };
   };
-  social: {
+  social?: {
     facebook?: string;
     instagram?: string;
     linkedin?: string;
@@ -29,36 +27,36 @@ export interface Props {
 }
 
 const { member } = Astro.props;
-const image = await findImage(member.featuredImage?.node?.mediaItemUrl);
+// Utiliser sourceUrl ou mediaItemUrl selon ce qui est disponible
+const imageUrl = member.featuredImage?.node?.sourceUrl || member.featuredImage?.node?.mediaItemUrl;
 ---
 
-<div class="bg-white dark:bg-slate-900 rounded-lg mt-2 shadow-lg overflow-hidden">
-  <div class="sm:flex-shrink-0 object-contain sm:h-80 w-full">
-    {image && (
-      <Image
-        src={image}
-        class="w-full h-full md:rounded md:shadow-lg bg-gray-400 dark:bg-slate-700"
-        widths={[400, 900]}
-        width={400}
-        sizes="(max-width: 900px) 400px, 900px"
-        alt="dsdf"
-        aspectRatio="16:9"
-        layout="cover"
+<div class="bg-white dark:bg-slate-900 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+  <div class="w-full h-64 sm:h-80 overflow-hidden">
+    {imageUrl ? (
+      <img
+        src={imageUrl}
+        alt={member.featuredImage?.node?.altText || member.title || 'Photo du membre'}
+        class="w-full h-full object-cover bg-gray-300 dark:bg-slate-700"
         loading="lazy"
         decoding="async"
       />
+    ) : (
+      <div class="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center">
+        <span class="text-gray-500 dark:text-gray-400 text-sm">Pas d'image</span>
+      </div>
     )}
   </div>
-  <div class="px-4 py-4 text-center">
-    <h2 class="font-bold text-lg">{member.title}</h2>
+  <div class="px-4 py-6 text-center">
+    <h2 class="font-bold text-lg text-gray-900 dark:text-white mb-2">{member.title}</h2>
     {member.excerpt && (
       <div class="text-sm text-gray-600 dark:text-gray-400 mt-2 leading-relaxed" 
            set:html={member.excerpt.length > 80 ? member.excerpt.substring(0, 80) + '...' : member.excerpt}>
       </div>
     )}
 
-    <div class="flex justify-center https://docs.astro.build/en/reference/astro-syntax/mt-3">
-      {member.social.facebook && (
+    <div class="flex justify-center gap-3 mt-3">
+      {member.social?.facebook && (
               <a href={member.social.facebook} target="_blank" rel="noopener noreferrer">
                 <Icon
                       name="tabler:brand-facebook"
@@ -66,7 +64,7 @@ const image = await findImage(member.featuredImage?.node?.mediaItemUrl);
                 />
               </a>
             )}
-            {member.social.instagram && (
+            {member.social?.instagram && (
               <a href={member.social.instagram} target="_blank" rel="noopener noreferrer">
                 <Icon
                       name="tabler:brand-instagram"
@@ -74,7 +72,7 @@ const image = await findImage(member.featuredImage?.node?.mediaItemUrl);
                 />
               </a>
             )}
-            {member.social.linkedin && (
+            {member.social?.linkedin && (
               <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer">
                 <Icon
                       name="tabler:brand-linkedin"
@@ -82,7 +80,7 @@ const image = await findImage(member.featuredImage?.node?.mediaItemUrl);
                 />
               </a>
             )}
-            {member.social.twitter && (
+            {member.social?.twitter && (
               <a href={member.social.twitter} target="_blank" rel="noopener noreferrer">
                 <Icon
                       name="tabler:brand-x"

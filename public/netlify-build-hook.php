@@ -125,3 +125,4 @@ class NetlifyBuildHook {
 // Initialiser le plugin
 new NetlifyBuildHook();
 
+
