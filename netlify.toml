@@ -5,7 +5,7 @@
 [build.environment]
   NODE_VERSION = "18.19.0"
   NPM_FLAGS = "--prefer-offline --no-audit"
-  PUBLIC_WORDPRESS_API_URL = "https://citizenlab.africtivistes.org/cameroun/graphql"
+  PUBLIC_WORDPRESS_API_URL = "https://citizenlab.africtivistes.org/citizenlabguinee/graphql"
 
 [build.processing]
   skip_processing = false

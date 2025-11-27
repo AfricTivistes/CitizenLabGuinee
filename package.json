@@ -1,11 +1,11 @@
 {
-  "name": "citizenlab-cameroun",
+  "name": "citizenlab-guinee",
   "version": "1.0.0",
   "type": "module",
   "engines": {
     "node": ">=18.0.0"
   },
-  "description": "CitizenLab Cameroun - Plateforme de participation citoyenne",
+  "description": "CitizenLab Guinée - Plateforme de participation citoyenne",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
