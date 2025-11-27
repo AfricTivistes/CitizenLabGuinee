@@ -8,12 +8,12 @@ Dans votre dashboard Netlify, configurez les variables d'environnement suivantes
 
 ```bash
 # GraphQL Configuration
-GRAPHQL_ENDPOINT=https://citizenlab.africtivistes.org/citizenlabguinee/graphql
+GRAPHQL_ENDPOINT=https://citizenlab.africtivistes.org/guinee/graphql
 GRAPHQL_DEBUG=false
 
 # WordPress Configuration
-WP_SITE_URL=https://citizenlab.africtivistes.org/citizenlabguinee
-WP_ADMIN_URL=https://citizenlab.africtivistes.org/citizenlabguinee/wp-admin
+WP_SITE_URL=https://citizenlab.africtivistes.org/guinee
+WP_ADMIN_URL=https://citizenlab.africtivistes.org/guinee/wp-admin
 
 # Site Configuration
 SITE_NAME=AfricTivistes CitizenLab Guinée
@@ -55,8 +55,8 @@ netlify deploy --prod --dir=dist
 ## 🔗 Liens utiles
 
 - **Site de production** : https://citizenlabguinee.netlify.app
-- **GraphQL Endpoint** : https://citizenlab.africtivistes.org/citizenlabguinee/graphql
-- **WordPress Admin** : https://citizenlab.africtivistes.org/citizenlabguinee/wp-admin
+- **GraphQL Endpoint** : https://citizenlab.africtivistes.org/guinee/graphql
+- **WordPress Admin** : https://citizenlab.africtivistes.org/guinee/wp-admin
 
 ## 📧 Contact
 
