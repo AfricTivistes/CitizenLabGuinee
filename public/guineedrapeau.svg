@@ -1,5 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="40" viewBox="0 0 3 2" preserveAspectRatio="xMidYMid meet">
-  <rect width="1" height="2" x="0" y="0" fill="#009e49"/>
+  <!-- Rouge -->
+  <rect width="1" height="2" x="0" y="0" fill="#ce1126"/>
+  <!-- Jaune -->
   <rect width="1" height="2" x="1" y="0" fill="#fcd116"/>
-  <rect width="1" height="2" x="2" y="0" fill="#ce1126"/>
+  <!-- Vert -->
+  <rect width="1" height="2" x="2" y="0" fill="#009e49"/>
 </svg>
