@@ -18,13 +18,13 @@ metadata:
   openGraph:
     site_name: Africtivistes CitizenLab Guinée
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/hero.png'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@onwidget'
-    site: '@onwidget'
+    handle: '@GuineeCitizenlab'
+    site: '@GuineeCitizenlab'
     cardType: summary_large_image
 
 i18n:
