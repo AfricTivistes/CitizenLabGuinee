@@ -87,10 +87,10 @@ export const footerData = {
     //{ text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { icon: 'tabler:brand-x', href: 'https://twitter.com/GuineeCitizenlab' },
-    { icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/citizenlabguinee/' },
-    { icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/profile.php?id=61553614994312' },
-    { icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/citizen-lab-guinee/about/' },
+    { icon: 'tabler:brand-x', href: 'https://x.com/citizenlab_GN/status/1993635336145039807?s=20' },
+    { icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/feed/update/urn:li:activity:7399398552302465024/' },
+    { icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/AfricTivistesCitizenLabGuinnee/posts/pfbid0UTr2tkdyZQAVwQL3Uwv9TttrwcqXeFa2heaD9ESD2LiujyRry7uhMbS8rRDffjpQl?rdid=UIj26ft4ozV2wxlq#' },
+    { icon: 'tabler:brand-instagram', href: 'https://www.instagram.com/p/DRhHYNVjJJZ/?igsh=NWE2bTMxMHo4amU%3D' },
     { icon: 'tabler:brand-github', href: 'https://github.com/AfricTivistes/CitizenLabGuinee' },
   ],
   footNote: `
