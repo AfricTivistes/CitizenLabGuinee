@@ -1,174 +1,94 @@
 ---
 import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'À propos — CitizenLab Guinée',
+  title: 'About us',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero + Présentation + Vidéo ******************* -->
+  <!-- Hero Widget ******************* -->
 
-  <section class="px-4 sm:px-6 lg:px-8 py-12 max-w-6xl mx-auto">
-    <p class="text-sm font-semibold tracking-wide text-yellow-500 uppercase mb-2">À propos</p>
-    <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-4 text-gray-900 dark:text-white">
-      Africtivistes CitizenLab Guinée
-    </h1>
-    <p class="text-lg md:text-xl text-gray-700 dark:text-gray-200 max-w-3xl">
-      Africtivistes CitizenLab Guinée est un laboratoire citoyen d’innovation numérique basé en Guinée. Il vise à
-      renforcer la participation citoyenne, l’accès à l’information et l’engagement des jeunes en s’appuyant sur les
-      technologies civiques (civic tech).
-    </p>
-    <div class="mt-6 max-w-5xl prose prose-lg dark:prose-invert">
-      <p>
-        L’initiative est portée par Africtivistes et ses partenaires pour outiller les acteurs et actrices de la
-        société civile guinéenne, en particulier les jeunes, afin de renforcer leur capacité d’action citoyenne. Le
-        lab met à disposition un espace d’expérimentation, de formation et de co‑création autour des technologies
-        numériques et de la participation citoyenne.
-      </p>
-      <p>
-        Depuis la Guinée, le projet contribue à faire émerger une nouvelle génération de leaders citoyens capables de
-        porter des initiatives innovantes pour la transparence, la redevabilité publique et la bonne gouvernance.
-      </p>
-    </div>
-
-    <div class="mt-10">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4 text-center">
-        Vidéo de présentation de CitizenLab Guinée
-      </h2>
-      <p class="text-center text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-        Découvrez en quelques minutes les objectifs, la vision et les activités d’Africtivistes CitizenLab Guinée.
-      </p>
-      <div class="relative w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
-        <iframe
-          class="absolute inset-0 w-full h-full"
-          src="https://www.youtube.com/embed/1B7tW58iJ0c?si=aC73SW0kfKyp2Fz3"
-          title="Vidéo de présentation de CitizenLab Guinée"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- Vision & Mission ****************** -->
-
-  <Features2
-    title="Vision et missions"
-    tagline="Ce que CitizenLab Guinée veut transformer"
-    columns={3}
-    items={[
-      {
-        title: 'Notre vision',
-        description:
-          "Construire une Guinée où chaque citoyenne et chaque citoyen, en particulier les jeunes, peut participer pleinement à la vie publique grâce au numérique, dans un environnement démocratique, inclusif et transparent.",
-        icon: 'tabler:eye',
-      },
-      {
-        title: 'Notre mission',
-        description:
-          "Accompagner les organisations et les mouvements citoyens à concevoir, tester et déployer des outils et démarches de participation citoyenne en s’appuyant sur les civic tech et l’intelligence collective.",
-        icon: 'tabler:target',
-      },
-      {
-        title: 'Notre approche',
-        description:
-          "Mettre au cœur de toutes nos actions la co-création avec les communautés locales, l’expérimentation de solutions concrètes et le partage d’expériences entre les différents acteurs engagés pour la démocratie.",
-        icon: 'tabler:users',
-      },
-    ]}
-  />
-
-  <!-- Axes stratégiques ************** -->
-
-  <Features3
-    title="Axes d’intervention de CitizenLab Guinée"
-    subtitle="Des actions concrètes pour renforcer la participation citoyenne"
-    columns={3}
-    isBeforeContent={true}
-    items={[
-      {
-        title: "Renforcement des capacités",
-        description:
-          "Formations, ateliers et accompagnement des jeunes, des organisations de la société civile et des médias sur la participation citoyenne, le plaidoyer digital et l’usage des civic tech.",
-        icon: 'tabler:school',
-      },
-      {
-        title: 'Production de contenus citoyens',
-        description:
-          "Création de contenus pédagogiques, d’articles, de vidéos et de campagnes numériques pour informer, sensibiliser et mobiliser autour des enjeux démocratiques en Guinée.",
-        icon: 'tabler:news',
-      },
-      {
-        title: 'Innovation et co-création',
-        description:
-          "Mise en réseau des acteurs, organisation de hackathons, laboratoires d’idées et espaces de co-design pour imaginer des solutions numériques répondant aux besoins des communautés.",
-        icon: 'tabler:bulb',
-      },
-    ]}
+  <Hero
+    tagline="About us"
+    image={{
+      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Caos Image',
+    }}
+    title="Elevate your online presence with our Beautiful Website Templates"
+    subtitle="Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus. Suspendisse vitae nisi eget tortor luctus maximus sed non lectus."
   />
 
   <!-- Stats Widget ****************** -->
 
   <Stats
-    title="CitizenLab Guinée en quelques chiffres (objectif projet)"
-    stats={[
-      { title: 'Jeunes formés et outillés', amount: '+150' },
-      { title: 'Contenus de valeurs produits', amount: '+130' },
-      { title: 'Offres de formations', amount: '50' },
-      { title: 'Nouvelles consciences citoyennes', amount: '+10M' },
-    ]}
+    title="Statistics about us"
+    stats={[{ title: 'Offices', amount: '4' }, { title: 'Employees', amount: '248' }, { title: 'Templates', amount: '12' }, { title: 'Awards', amount: '24' }] || []}
   />
 
-  <!-- Valeurs ****************** -->
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="Our templates"
+    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
+    columns={3}
+    isBeforeContent={true}
+    items={[{ title: 'Educational', description: 'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.', icon: 'tabler:template' }, { title: 'Interior Design', description: 'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.', icon: 'tabler:template' }, { title: 'Photography', description: 'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.', icon: 'tabler:template' }] || []}
+  />
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    columns={3}
+    isAfterContent={true}
+    items={[{ title: 'E-commerce', description: 'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.', icon: 'tabler:template' }, { title: 'Blog', description: 'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.', icon: 'tabler:template' }, { title: 'Business', description: 'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.', icon: 'tabler:template' }, { title: 'Branding', description: 'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.', icon: 'tabler:template' }, { title: 'Medical', description: 'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.', icon: 'tabler:template' }, { title: 'Fashion Design', description: 'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.', icon: 'tabler:template' }] || []}
+    image={{
+      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Colorful Image',
+    }}
+  />
+
+  <!-- Steps2 Widget ****************** -->
 
   <Steps2
-    title="Nos valeurs"
-    subtitle="Un engagement pour une citoyenneté active, inclusive et responsable"
-    items={[
-      {
-        title: 'Participation',
-        description:
-          "Nous croyons à la capacité des citoyennes et citoyens à transformer leur environnement lorsqu’ils disposent des bons outils et espaces de dialogue.",
-      },
-      {
-        title: 'Transparence & redevabilité',
-        description:
-          "Nous promouvons une culture de transparence dans l’action publique et l’obligation de rendre compte aux citoyen·ne·s.",
-      },
-      {
-        title: 'Inclusion',
-        description:
-          "Nos actions visent à inclure les groupes souvent marginalisés – jeunes, femmes, populations rurales – au cœur des dynamiques citoyennes.",
-      },
-    ]}
+    title="Our values"
+    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
+    items={[{ title: 'Customer-centric approach', description: 'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.' }, { title: 'Constant Improvement', description: 'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.' }, { title: 'Ethical Practices', description: 'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.' }] || []}
   />
 
-  <!-- Contact / Call to action ************** -->
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="Achievements"
+    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
+    isReversed={true}
+    callToAction={{
+      text: 'See more',
+      href: '/',
+    }}
+    items={[{ title: 'Global reach', description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.', icon: 'tabler:globe' }, { title: 'Positive customer feedback and reviews', description: 'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.', icon: 'tabler:message-star' }, { title: 'Awards and recognition as industry experts', description: 'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.', icon: 'tabler:award' }] || []}
+  />
+
+  <!-- Features2 Widget ************** -->
 
   <Features2
-    title="Rejoindre CitizenLab Guinée"
-    tagline="Vous souhaitez collaborer, proposer une idée ou accueillir une activité du lab&nbsp;?"
+    title="Our locations"
+    tagline="Find us"
+    columns={4}
+    items={[{ title: 'EE.UU', description: '1234 Lorem Ipsum St, 12345, Miami' }, { title: 'Spain', description: '5678 Lorem Ipsum St, 56789, Madrid' }, { title: 'Australia', description: '9012 Lorem Ipsum St, 90123, Sydney' }, { title: 'Brazil', description: '3456 Lorem Ipsum St, 34567, São Paulo' }] || []}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Technical Support"
+    tagline="Contact us"
     columns={2}
-    items={[
-      {
-        title: 'Organisations & partenaires',
-        description:
-          "Vous représentez une organisation, une collectivité, une université ou un collectif citoyen&nbsp;? Contactez-nous pour co-construire des activités, formations ou projets d’innovation citoyenne.",
-        icon: 'tabler:users-group',
-      },
-      {
-        title: 'Jeunes engagé·e·s',
-        description:
-          "Vous êtes jeune, motivé·e et souhaitez vous engager pour la démocratie participative en Guinée&nbsp;? Suivez nos appels à candidatures et nos activités de formation.",
-        icon: 'tabler:rocket',
-      },
-    ]}
+    items={[{ title: 'Chat with us', description: 'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.', icon: 'tabler:messages' }, { title: 'Call us', description: 'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.', icon: 'tabler:headset' }] || []}
   />
 </Layout>

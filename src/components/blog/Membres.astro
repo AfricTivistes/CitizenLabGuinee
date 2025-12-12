@@ -31,8 +31,8 @@ const { team } = Astro.props;
 
 {team && team.length > 0 ? (
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    {team.map((membre) => <Membre member={membre} />)}
-  </div>
+  {team.map((membre) => <Membre member={membre} />)}
+</div>
 ) : (
   <div class="text-center py-12 max-w-2xl mx-auto px-4">
     <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">

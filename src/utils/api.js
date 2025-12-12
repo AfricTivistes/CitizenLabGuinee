@@ -348,26 +348,26 @@ export async function getAllMembers() {
       body: JSON.stringify({
         query: `{
           equipes (where: {status: PUBLISH}, first: 100) {
-            nodes {
+                  nodes {
               id
               title
               slug
               date
               excerpt
-              featuredImage {
-                node {
-                  altText
-                  mediaItemUrl
+                        featuredImage {
+                              node {
+                                altText
+                                mediaItemUrl
                   sourceUrl
-                }
-              }
-              social {
-                facebook
-                instagram
-                linkedin
-                twitter
-              }
-            }
+                        }
+                        }
+                        social {
+                          facebook
+                          instagram
+                          linkedin
+                          twitter
+                        }
+                    }
           }
         }`
       })

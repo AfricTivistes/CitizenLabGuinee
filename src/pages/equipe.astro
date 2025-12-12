@@ -23,21 +23,21 @@ try {
 <Layout metadata={metadata}>
   <div class="min-h-screen">
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <Headline
+    <Headline
         subtitle="L'équipe Citizen Lab Guinée est composée de jeunes engagés avec des profils divers et complémentaires. Ce sont des acteurs de changement conscients de leur leadership et de leur volonté d'impacter"
-        title="Membres de l'équipe"
+      title="Membres de l'équipe"
         classes={{
           container: 'text-center mb-12',
           title: 'text-4xl md:text-5xl font-bold mb-4',
           subtitle: 'text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto',
         }}
-      >
-      </Headline>
+    >
+    </Headline>
 
     <!-- Membres ****************** -->
-    
+
     {members && members.length > 0 ? (
-      <Membres team={members}/>
+    <Membres team={members}/>
     ) : (
       <div class="text-center py-12 max-w-2xl mx-auto px-4">
         <p class="text-lg text-gray-600 dark:text-gray-400 mb-4">
@@ -53,14 +53,14 @@ try {
 
     <!-- Stats Widget ****************** -->
     <section class="bg-gray-50 dark:bg-slate-800 py-12">
-      <Stats
-        stats={[
-          { title: 'Offres de formations', amount: '50' },
-          { title: 'Jeunes outillés', amount: '+150' },
-          { title: 'Contenus de Valeurs', amount: '+130' },
-          { title: "Nouvelles consciences citoyennes", amount: '+10M' },
-        ]}
-      />
+    <Stats
+      stats={[
+        { title: 'Offres de formations', amount: '50' },
+        { title: 'Jeunes outillés', amount: '+150' },
+        { title: 'Contenus de Valeurs', amount: '+130' },
+        { title: "Nouvelles consciences citoyennes", amount: '+10M' },
+      ]}
+    />
     </section>
   </div>
 
